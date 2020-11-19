@@ -1,4 +1,6 @@
-# AngularDynamicForms
+# Angular Advanced Dynamic Form Example
+
+![Snapshot](src/assets/angular-advanced-dynamic-form.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
