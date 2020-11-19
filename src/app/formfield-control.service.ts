@@ -28,7 +28,7 @@ export class FormfieldControlService {
     return new FormGroup(group);
   }
 
-  getQuestions() {
+  getFormFields() {
 
     const inputs: FormField<string>[] = [
 

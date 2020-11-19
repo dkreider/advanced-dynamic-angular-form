@@ -13,6 +13,6 @@ export class AppComponent {
   title = 'AngularDynamicForms';
   formFields: Observable<FormField<any>[]>;
   constructor(service: FormfieldControlService) {
-    this.formFields = service.getQuestions();
+    this.formFields = service.getFormFields();
   }
 }
