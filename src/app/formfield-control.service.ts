@@ -2,11 +2,6 @@ import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { of } from 'rxjs';
 import { FormField } from './form-field';
-import { InputCheckbox } from './input-checkbox';
-import { InputDropdown } from './input-dropdown';
-import { InputRadio } from './input-radio';
-import { InputTextarea } from './input-textarea';
-import { InputTextbox } from './input-textbox';
 
 @Injectable({
   providedIn: 'root'
@@ -29,14 +24,16 @@ export class FormfieldControlService {
 
     const inputs: FormField<string>[] = [
 
-      new InputTextbox({
+      new FormField<string>({
+        controlType: "textbox",
         key: 'name',
         label: 'Name',
         required: true,
         order: 1
       }),
 
-      new InputTextbox({
+      new FormField<string>({
+        controlType: "textbox",
         key: 'email',
         label: 'Email',
         type: 'email',
@@ -44,7 +41,8 @@ export class FormfieldControlService {
         order: 2
       }),
 
-      new InputDropdown({
+      new FormField<string>({
+        controlType: "dropdown",
         key: 'country',
         label: 'Country',
         options: [
@@ -55,7 +53,8 @@ export class FormfieldControlService {
         order: 3
       }),
 
-      new InputCheckbox({
+      new FormField<string>({
+        controlType: "checkbox",
         key: 'agree',
         label: 'I accept terms and services',
         type: 'checkbox',
@@ -63,7 +62,8 @@ export class FormfieldControlService {
         order: 4
       }),
 
-      new InputRadio({
+      new FormField<string>({
+        controlType: "radio",
         key: 'sex',
         label: 'Sex',
         type: 'radio',
@@ -74,7 +74,8 @@ export class FormfieldControlService {
         order: 5
       }),
 
-      new InputTextarea({
+      new FormField<string>({
+        controlType: "textarea",
         key: 'message',
         label: 'Mesage',
         type: 'textarea',

@@ -11,8 +11,8 @@ import { FormfieldControlService } from './formfield-control.service';
 })
 export class AppComponent {
   title = 'AngularDynamicForms';
-  inputs: Observable<FormField<any>[]>;
+  formFields: Observable<FormField<any>[]>;
   constructor(service: FormfieldControlService) {
-    this.inputs = service.getQuestions();
+    this.formFields = service.getQuestions();
   }
 }

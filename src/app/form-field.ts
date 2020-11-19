@@ -3,7 +3,6 @@ export class FormField<T> {
   key: string;
   label: string;
   required: boolean;
-  disabled: boolean;
   order: number;
   controlType: string;
   type: string;

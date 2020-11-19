@@ -10,14 +10,14 @@ import { FormfieldControlService } from '../formfield-control.service';
 })
 export class DynamicFormComponent implements OnInit {
 
-  @Input() inputs: FormField<string>[] = [];
+  @Input() formFields: FormField<string>[] = [];
   form: FormGroup;
   payLoad = '';
 
   constructor(private formfieldService: FormfieldControlService) { }
 
   ngOnInit(): void {
-    this.form = this.formfieldService.toFormGroup(this.inputs);
+    this.form = this.formfieldService.toFormGroup(this.formFields);
   }
 
   onSubmit() {
