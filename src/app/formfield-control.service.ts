@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { of } from 'rxjs';
 import { FormField } from './form-field';
 
@@ -13,7 +13,15 @@ export class FormfieldControlService {
   toFormGroup(inputs: FormField<string>[]): FormGroup {
     const group: any = {};
     inputs.forEach(input => {
-      group[input.key] = input.required ? new FormControl(input.value || '', Validators.required)
+      let validator: ValidatorFn[] = input.required ? [Validators.required] : [];
+      switch (input.validator) {
+        case "email":
+          validator.push(Validators.email);
+          break;
+        default:
+          break;
+      }
+      group[input.key] = validator.length > 0 ? new FormControl(input.value || '', validator)
                                         : new FormControl(input.value || '');
     });
 
@@ -38,6 +46,7 @@ export class FormfieldControlService {
         label: 'Email',
         type: 'email',
         required: true,
+        validator: "email",
         order: 2
       }),
 
