@@ -1,0 +1,38 @@
+<div [formGroup]="form" class="form-group">
+
+    <div [ngSwitch]="input.controlType">
+
+      <div *ngSwitchCase="'textbox'">
+        <label [attr.for]="input.key">{{input.label}}</label>
+        <input class="form-control" [formControlName]="input.key" [id]="input.key" [type]="input.type">
+      </div>
+  
+      <div *ngSwitchCase="'dropdown'">
+        <label [attr.for]="input.key">{{input.label}}</label>
+        <select class="custom-select" [id]="input.key" [formControlName]="input.key">
+          <option *ngFor="let opt of input.options" [value]="opt.key">{{opt.value}}</option>
+        </select>
+      </div>
+
+      <div *ngSwitchCase="'checkbox'">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" [formControlName]="input.key" [id]="input.key">
+          <label class="form-check-label" [attr.for]="input.key">{{input.label}}</label>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'radio'">
+        <div class="form-check form-check-inline" *ngFor="let opt of input.options">
+          <input class="form-check-input" type="radio" [formControlName]="input.key" [id]="input.key" [value]="opt.value">
+          <label class="form-check-label" [attr.for]="opt.key"> {{ opt.value }} </label>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'textarea'">
+        <label [attr.for]="input.key">{{input.label}}</label>
+        <textarea class="form-control" [formControlName]="input.key" [id]="input.key" rows="5"></textarea>
+      </div>
+  
+    </div>
+
+  </div>
