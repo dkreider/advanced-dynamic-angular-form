@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { FormField } from '../form-field';
 import { FormfieldControlService } from '../formfield-control.service';
 
@@ -11,7 +11,7 @@ import { FormfieldControlService } from '../formfield-control.service';
 export class DynamicFormComponent implements OnInit {
 
   @Input() formFields: FormField<string>[] = [];
-  form: FormGroup;
+  form: UntypedFormGroup;
   payLoad = '';
 
   constructor(private formfieldService: FormfieldControlService) { }
